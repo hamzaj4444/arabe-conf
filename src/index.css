@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    /* Moroccan Academic Color Palette */
+    --background: 0 0% 100%;
+    --foreground: 140 8% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 8% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 8% 15%;
+
+    /* Updated Primary Color (#15314d) */
+    --primary: 209 60% 20%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 209 60% 15%;
+
+    /* Academic Secondary */
+    --secondary: 209 25% 95%;
+    --secondary-foreground: 209 60% 20%;
+
+    /* Muted Academic Tones */
+    --muted: 209 15% 96%;
+    --muted-foreground: 209 8% 45%;
+
+    /* Dark Blue-Purplish Accent */
+--accent: 260 60% 45%; /* deep indigo */
+--accent-foreground: 0 0% 100%;
+
+--destructive: 350 60% 45%; /* dark magenta-red for destructive actions */
+--destructive-foreground: 0 0% 100%;
+
+--border: 250 20% 30%; /* muted deep purple */
+--input: 250 20% 30%;
+--ring: 260 100% 30%; /* vibrant purple-blue for focus rings */
+
+--radius: 0.5rem;
+
+    /* Arabic Typography & Academic Styling */
+    --font-arabic: "Cairo", "Tajawal", sans-serif;
+    --font-latin: "Inter", sans-serif;
+
+    /* Academic Gradients */
+    --gradient-moroccan: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--accent))
+    );
+    --gradient-academic: linear-gradient(
+      180deg,
+      hsl(var(--background)),
+      hsl(var(--muted))
+    );
+
+    /* Shadows */
+    --shadow-academic: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-elegant: 0 8px 30px -8px hsl(var(--primary) / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 209 60% 20%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+.bg-zellige {
+  background-image: url('/zellige.png');
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  background-blend-mode: soft-light;
+}
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 209 60% 85%;
+    --primary-foreground: 209 60% 20%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 209 60% 85%;
+    --sidebar-primary-foreground: 209 60% 20%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-arabic);
+    position: relative;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+
+  [dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+  }
+
+  /* Arabic Typography */
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  .font-latin {
+    font-family: var(--font-latin);
+  }
+
+  /* Academic Styling */
+  .academic-gradient {
+    background: var(--gradient-academic);
+  }
+
+  .moroccan-gradient {
+    background: var(--gradient-moroccan);
+  }
+
+  .shadow-academic {
+    box-shadow: var(--shadow-academic);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  /* Conference Section Styling */
+  .section-header {
+    @apply text-2xl md:text-3xl font-bold text-primary mb-6;
+  }
+
+  .academic-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-academic;
+  }
+
+  /* Schedule Styling */
+  .schedule-item {
+    @apply flex justify-between items-center py-3 border-b border-border last:border-b-0;
+  }
+
+  .schedule-time {
+    @apply text-sm font-medium text-muted-foreground min-w-[80px];
+  }
+
+  .schedule-content {
+    @apply flex-1 text-foreground;
+  }
+}
