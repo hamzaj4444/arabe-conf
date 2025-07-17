@@ -6,7 +6,7 @@ import { Users, GraduationCap, User } from 'lucide-react';
 
 export const CommitteesSection: React.FC = () => {
   const { t } = useTranslation();
-  const [activeCommittee, setActiveCommittee] = useState<'organizing' | 'scientific'>('organizing');
+  const [activeCommittee, setActiveCommittee] = useState<'organizing' | 'scientific' | 'design' >('organizing');
 
   return (
     <section id="committees" className="py-20 bg-zellige">
@@ -46,52 +46,79 @@ export const CommitteesSection: React.FC = () => {
                 <GraduationCap className="h-4 w-4" />
                 {t({ ar: 'اللجنة العلمية', fr: 'Comité scientifique' })}
               </Button>
+              <Button
+                variant={activeCommittee === 'design' ? "default" : "ghost"}
+                onClick={() => setActiveCommittee('design')}
+                className="font-arabic flex items-center gap-2"
+              >
+                <GraduationCap className="h-4 w-4" />
+                {t({ ar: 'لجنة التصميم', fr: 'comité de design' })}
+              </Button>
             </div>
           </div>
 
           {/* Committee Content */}
-          {activeCommittee === 'organizing' ? (
-            <div className="academic-card">
-              <h3 className="text-xl font-semibold text-primary mb-6 text-center font-arabic">
-                {t({ ar: 'أعضاء اللجنة المنظمة', fr: 'Membres du comité d\'organisation' })}
-              </h3>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {conferenceData.organizingCommittee.map((member, index) => (
-                  <div key={index} className="bg-muted/30 rounded-lg p-4 text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <User className="h-6 w-6 text-primary" />
-                    </div>
-                    <h4 className="font-semibold text-foreground mb-1 font-arabic">
-                      {member.firstName} {member.lastName}
-                    </h4>
-                    <p className="text-sm text-muted-foreground font-arabic">
-                      {t(member.institution)}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div className="academic-card">
-              <h3 className="text-xl font-semibold text-primary mb-6 text-center font-arabic">
-                {t({ ar: 'أعضاء اللجنة العلمية', fr: 'Membres du comité scientifique' })}
-              </h3>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {conferenceData.scientificCommittee.map((member, index) => (
-                  <div key={index} className="bg-muted/30 rounded-lg p-4 text-center">
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <GraduationCap className="h-5 w-5 text-primary" />
-                    </div>
-                    <p className="font-medium text-foreground text-sm font-arabic">
-                      {member}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+{activeCommittee === 'organizing' ? (
+  <div className="academic-card">
+    <h3 className="text-xl font-semibold text-primary mb-6 text-center font-arabic">
+      {t({ ar: 'أعضاء اللجنة المنظمة', fr: 'Membres du comité d\'organisation' })}
+    </h3>
+    
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {conferenceData.organizingCommittee.map((member, index) => (
+        <div key={index} className="bg-muted/30 rounded-lg p-4 text-center">
+          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+            <User className="h-6 w-6 text-primary" />
+          </div>
+          <h4 className="font-semibold text-foreground mb-1 font-arabic">
+            {member.firstName} {member.lastName}
+          </h4>
+          <p className="text-sm text-muted-foreground font-arabic">
+            {t(member.institution)}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+) : activeCommittee === 'scientific' ? (
+  <div className="academic-card">
+    <h3 className="text-xl font-semibold text-primary mb-6 text-center font-arabic">
+      {t({ ar: 'أعضاء اللجنة العلمية', fr: 'Membres du comité scientifique' })}
+    </h3>
+    
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {conferenceData.scientificCommittee.map((member, index) => (
+        <div key={index} className="bg-muted/30 rounded-lg p-4 text-center">
+          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+            <GraduationCap className="h-5 w-5 text-primary" />
+          </div>
+          <p className="font-medium text-foreground text-sm font-arabic">
+            {member}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+) : (
+  <div className="academic-card">
+    <h3 className="text-xl font-semibold text-primary mb-6 text-center font-arabic">
+      {t({ ar: 'أعضاء اللجنة التصميم', fr: 'Membres du comité de design' })}
+    </h3>
+    
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {conferenceData.designCommittee.map((member, index) => (
+        <div key={index} className="bg-muted/30 rounded-lg p-4 text-center">
+          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+            <GraduationCap className="h-5 w-5 text-primary" />
+          </div>
+          <p className="font-medium text-foreground text-sm font-arabic">
+            {member}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
 
           {/* Additional Information */}
           <div className="mt-8 text-center">

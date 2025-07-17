@@ -50,7 +50,12 @@ export const AboutSection: React.FC = () => {
               </h3>
               <p className="text-muted-foreground">
                 {t({ 
-                  ar: 'مفتوح لجميع الأكاديميين والطلاب والمهتمين بالدراسات العربية',
+                  ar: 'مفتوح لجميع الأكاديميين و الطلبة والمهتمين بالدراسات العربية',
+                  fr: 'Ouvert à tous les académiciens, étudiants et passionnés d\'études arabes'
+                })}
+              </p><p className="text-muted-foreground">
+                {t({ 
+                  ar: '(يحصل الطلبة المشاركون على  شهادة الحضور والمشاركة)',
                   fr: 'Ouvert à tous les académiciens, étudiants et passionnés d\'études arabes'
                 })}
               </p>
