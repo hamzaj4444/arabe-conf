@@ -57,13 +57,13 @@ export const conferenceData = {
   coordinator: {
     name: "د. رشيدة كوجيل",
     nameEn: "Dr. Rachida Gougil",
-    email: "rachida.gougil@usmba.ac.ma",
+    email: "arabensconfo@gmail.com",
     phone: "0661757427",
   },
   coordinator1: {
     name: "د. عمر بوسلات",
     nameEn: "Dr. Rachida Gougil",
-    email: " omar.boussallat@usmba.ac.ma",
+    email: " arabensconfo@gmail.com",
     phone: "0620434781",
   },
 

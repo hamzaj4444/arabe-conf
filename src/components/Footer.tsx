@@ -63,16 +63,17 @@ export const Footer: React.FC = () => {
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <a 
-                  href={`tel:${conferenceData.coordinator.phone}`}
+                  href={`tel:${conferenceData.coordinator1.phone}`}
                   className="hover:text-accent transition-colors"
                 >
-                  {conferenceData.coordinator.phone}
+                  {conferenceData.coordinator1.phone}
                 </a>
               </div>
               <p className="font-arabic font-medium mt-3">
-                {conferenceData.coordinator.name}
+                {conferenceData.coordinator1.name}
               </p>
             </div>
+            
           </div>
         </div>
 
